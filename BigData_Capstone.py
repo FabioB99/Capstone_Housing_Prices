@@ -42,6 +42,11 @@ model = load_model()
 # Header
 ################################################
 
-st.header("House Price Prediction")
+# Insert blank line at the top
+st.markdown('#')
+# Add a title + anchor and a title image
+st.title("  \n  House Price Prediction ")
 
-st.dataframe(data=df)
+# Add an expandable page description with links to the corresponding section
+with st.expander("See Page Description"):
+     st.markdown("This Streamlit dashboard....")
