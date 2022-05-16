@@ -38,3 +38,10 @@ df = load_data()
 model = load_model()
 
 
+################################################
+# Header
+################################################
+
+st.header("House Price Prediction")
+
+st.dataframe(data=df)
