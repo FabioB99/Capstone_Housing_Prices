@@ -50,3 +50,8 @@ st.title("  \n  House Price Prediction ")
 # Add an expandable page description with links to the corresponding section
 with st.expander("See Page Description"):
      st.markdown("This Streamlit dashboard....")
+     
+st.markdown('#')
+
+with st.expander("See Dataframe"):
+     st.dataframe(data=df)
