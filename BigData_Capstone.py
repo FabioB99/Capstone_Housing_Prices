@@ -113,3 +113,4 @@ df["LotFrontage"] = df["LotFrontage"].astype(int)
 einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
                                0, 500, 150, 1)
 
+
