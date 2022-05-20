@@ -121,9 +121,7 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
 ################################################
 
 st.subheader("Kaufpreis vorhersagen:")
-
-with st.expander("Erklärung anzeigen"):
-     st.markdown("Kurze Erklärung...")
+st.markdown("Erstellt eine Vorhersage für den Marktpreis basierend auf den eingegebenen Werten")
 
 # Creates a button to start the prediction
 if st.button("Start Prediction"):
