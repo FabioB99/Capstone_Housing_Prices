@@ -116,19 +116,30 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
 
 
 
+################################################
+# Prediction Section
+################################################
+
+st.subheader("Kaufpreis vorhersagen:")
+
+with st.expander("Berschreibung anzeigen"):
+     st.marktdown("Kurze Erklärung...")
+
+st.write("#")
+
 
 
 ################################################
 # Grafiken
 ################################################
        
-st.subheader("Data Vizualizaion")
+st.subheader("Visualisierung der Daten:")
 
-with st.expander("See full Dataframe"):
+with st.expander("Ganzes Datenset anzeigen"):
      st.dataframe(data=df)
 
 st.write("#")
-st.write("#")
+
 
 # defining two columns for layouting plots 
 row2_col1, row2_col2  = st. columns([1,1])
