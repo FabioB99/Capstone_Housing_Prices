@@ -121,17 +121,14 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
 ################################################
 # Grafiken
 ################################################
-
-st.write("#")
-         
+       
 st.subheader("Data Vizualizaion")
 
-# Add checkbox allowing us to display raw data
-if st.checkbox("Show Data", False):
-    st.subheader("Housing Data")
-    st.write(df)
+with st.expander("See full Dataframe"):
+     st.dataframe(data=df)
 
-     
+st.write("#")
+st.write("#")
 
 # defining two columns for layouting plots 
 row2_col1, row2_col2  = st. columns([1,1])
