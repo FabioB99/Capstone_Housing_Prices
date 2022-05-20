@@ -53,9 +53,7 @@ with st.expander("See Page Description"):
      
 st.markdown('#')
 
-with st.expander("See Dataframe"):
-     st.dataframe(data=df)
-     
+
 
 ################################################
 # Sidebar
@@ -118,17 +116,22 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
 
 
 
-# Add checkbox allowing us to display raw data
-if st.checkbox("Show Data", False):
-    st.subheader("Housing Data")
-    st.write(df)
 
 
 ################################################
 # Grafiken
 ################################################
 
+st.write("#")
+         
 st.subheader("Data Vizualizaion")
+
+# Add checkbox allowing us to display raw data
+if st.checkbox("Show Data", False):
+    st.subheader("Housing Data")
+    st.write(df)
+
+     
 
 # defining two columns for layouting plots 
 row2_col1, row2_col2  = st. columns([1,1])
@@ -147,7 +150,6 @@ row2_col1.pyplot(fig1, use_container_width=True)
 fig2 = plt.figure(figsize=(10,5))
 sns.scatterplot(data=df, x="SalePrice", y="YearBuilt", hue="OverallQual")
 plt.title("Sale Price & Year Built")
-
 
 # Put seaborn figure 2 in col 2 
 row2_col2.subheader("SalePrice & Year Built")
