@@ -23,7 +23,7 @@ st.set_page_config(
     layout="wide")
 
 # Daten importieren
-# @st.cache(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True)
 def load_data():
     df = pd.read_csv("houses_data_dev.csv")
     return df
@@ -45,7 +45,7 @@ model = load_model()
 # Insert blank line at the top
 st.markdown('#')
 # Add a title + anchor and a title image
-st.title("  \n  House Price Prediction ")
+st.title("House Price Prediction")
 
 # Add an expandable page description with links to the corresponding section
 with st.expander("See Page Description"):
