@@ -57,7 +57,10 @@ with st.expander("See Dataframe"):
      st.dataframe(data=df)
      
 
-# Code für Sidebar
+################################################
+# Sidebar
+################################################
+
 #Erstellung der Überschriften in der Sidebar
 st.sidebar.title("Immobilienbewertung")
 st.sidebar.markdown("Berechnen Sie jetzt den Wert Ihrer Liegenschaft")
@@ -77,7 +80,6 @@ df["GrLivArea"] = df["GrLivArea"].astype(int)
 generellground = st.sidebar.number_input("Wohnfläche in sqf (ohne Kellerräume)",
                                   0, 8000, 2500, 1)
                         
-
 df["1stFlrSF"] = df["1stFlrSF"].astype(int)
 firstfloor = st.sidebar.number_input("Wohnfläche des ersten Stocks in sqf",
                                   0, 7000, 1000, 1)
@@ -99,6 +101,7 @@ baujahr = st.sidebar.number_input("Baujahr",
 
 renovationsjahr = st.sidebar.number_input("Renovationsjahr",
                                   1850, 2022)
+
 #Einfügen einer Legende für Renovationsjahr
 legende_renovationsjahr = '<p style="font-family:Courier; color:Red; font-size: 10px;">Falls bisher keine Renovation stattfand, dann Renovationsjahr = Baujahr</p>'
 st.sidebar.markdown(legende_renovationsjahr, unsafe_allow_html=True)
@@ -120,6 +123,12 @@ if st.checkbox("Show Data", False):
     st.subheader("Housing Data")
     st.write(df)
 
+
+################################################
+# Grafiken
+################################################
+
+st.subheader("Data Vizualizaion")
 
 # defining two columns for layouting plots 
 row2_col1, row2_col2  = st. columns([1,1])
