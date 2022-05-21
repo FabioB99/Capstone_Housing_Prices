@@ -156,14 +156,11 @@ row2_col1, row2_col2  = st. columns([1,1])
 # Seaborn Chart Fig1
 fig1 = plt.figure(figsize=(10,5))
 sns.scatterplot(data=df, x="LotArea", y="SalePrice", hue="OverallQual")
-plt.title("Sale Price & Lot Area", fontsize=10)
+plt.title("Sale Price & Lot Area", fontsize=5)
 
 # Put seaborn figure 1 in col 1 
 row2_col1.subheader("Sale Price & Lot Area")
 row2_col1.pyplot(fig1, use_container_width=True)
-
-
-
 
 # Seaborn Chart Fig2
 fig2 = plt.figure(figsize=(10,5))
