@@ -142,10 +142,10 @@ def make_prediction():
 
 row1_col1, row1_col2, row1_col3 = st.columns([1,1,1])
 
-if row1_col1.button("Start Prediction"):
+if row1_col2.button("Start Prediction"):
     st.write(make_prediction())
     
-uploaded_data = row1_col2.file_uploader("Choose a file with Customer Data for Predicting Customer Default")
+uploaded_data = row1_col1.file_uploader("Choose a file with Customer Data for Predicting Customer Default")
 
 
 
