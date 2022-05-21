@@ -119,7 +119,8 @@ st.subheader("Visualisierung der Daten:")
 
 col1, col2, col3  = st. columns([1,1,1])
 
-baujahr2 = col1.slider("Baujahr", int(df["YearBuilt"].min()), int(df["YearBuilt"].max()), (1900, 2010))
+# Create filter sliders
+baujahr2 = col1.slider("Baujahr", int(df["YearBuilt"].min()), int(df["YearBuilt"].max()), (1900, 2000))
 grundstücksfläche2 = col2.slider("Grundstücksfläche in sqf", int(df["LotArea"].min()), int(df["LotArea"].max()), (1300, 150000))
 generellground2 = col3.slider("Wohnfläche in sqf", int(df["GrLivArea"].min()), int(df["GrLivArea"].max()), (1000, 5000))
 quality2 = col1.slider('Zustand der Immobilie', int(df["OverallQual"].min()), int(df["OverallQual"].max()), (2, 8))  
