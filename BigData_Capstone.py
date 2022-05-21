@@ -117,7 +117,7 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
 
 
 ################################################
-# Prediction Section
+# Vorhersage
 ################################################
 
 st.subheader("Kaufpreis vorhersagen:")
@@ -133,12 +133,15 @@ def create_pred_df():
     input_data = pd.DataFrame(data=d,index=[0])
     return input_data
 
+# Vorhersage durchführen
 def make_prediction():
     prediction = model.predict(create_pred_df())
     st.write("#")    
     st.metric(label="Geschätzter Kaufpreis:", value=int(prediction))
 
-if st.button("Start Prediction"):
+row1_col1, row1_col2, row1_col3 = st.columns([1,1,1])
+
+if row1_col1.button("Start Prediction"):
     st.write(make_prediction())
 
 
