@@ -120,7 +120,7 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
 ################################################
 
 st.sidebar.write("#")
-st.sidebar.subheader("Kaufpreis vorhersagen:")
+st.sidebar.subheader("Kaufpreis berechnen:")
 
 def create_pred_df():
     d = {'LotFrontage': int(einfahrt), 'LotArea': int(grundstücksfläche),
@@ -140,7 +140,7 @@ def make_prediction():
     st.sidebar.success("Vorhersage erfolgreich👍")
     return price_output
 
-if st.sidebar.button("Start Prediction"):
+if st.sidebar.button("Vorhersage starten"):
     make_prediction()
     
 
