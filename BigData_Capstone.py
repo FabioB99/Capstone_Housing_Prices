@@ -124,7 +124,7 @@ baujahr2 = col1.slider("Baujahr", 1850, 2022, (2000, 2010))
 quality2 = col2.slider('Zustand der Immobilie', 0, 10, (0,10))
 grundstücksfläche2 = col3.slider('Grundstücksfläche in sqf', 0, 250000, (150000, 50000))
 badezimmer2 = col1.number_input("Anzahl Badezimmer", 0, 200, 3)
-garagenplätze = col1.number_input("Anzahl Garagenplätze", 0, 200, 2)
+garagenplätze = col2.number_input("Anzahl Garagenplätze", 0, 200, 2)
 
 # creating filtered data set according to slider inputs
 filtered_df = df.loc[(df["OverallQual"] >= quality2[0]) & (df["OverallQual"] <= quality2[1]) &
