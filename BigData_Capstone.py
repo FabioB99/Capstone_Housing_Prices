@@ -115,7 +115,7 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
 # Dateninspektion
 ################################################
 
-st.subheader("Visualisierung der Daten:")
+st.subheader("Visualisierung der Daten")
 
 col1, col2, col3  = st. columns([1,1,1])
 
