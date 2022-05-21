@@ -139,7 +139,7 @@ def make_prediction():
     st.sidebar.success("Vorhersage erfolgreich👍")
     return price_output
 
-if st.sidebar.button("Kaufpreis berechnen"):
+if st.sidebar.button("Preis der Immobilie berechnen:"):
     make_prediction()
     
 
