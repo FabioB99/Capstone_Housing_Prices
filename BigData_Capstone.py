@@ -60,6 +60,7 @@ st.sidebar.markdown("Berechnen Sie jetzt den Wert Ihrer Liegenschaft")
 
 st.sidebar.header("Details zu Ihrer Liegenschaft")
 
+
 #Erstellung der Features in der Sidebar
 
 quality = st.sidebar.slider("Generelle Qualität der Liegenschaft",
@@ -110,6 +111,15 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
                                0, 500, 150, 1)
 
 
+st.write(generellground)
+st.write(quality)
+
+# creating filtered data set according to slider inputs
+filtered_df = df.loc[(df["OverallQual"] == quality) &
+                     (df["monthly_income"] >= generellground)
+                     , : ]
+
+
 ################################################
 # Vorhersage
 ################################################
@@ -144,8 +154,8 @@ if st.sidebar.button("Vorhersage durchführen"):
        
 st.subheader("Visualisierung der Daten:")
 
-with st.expander("Ganzes Datenset anzeigen"):
-     st.dataframe(data=df)
+#with st.expander("Ganzes Datenset anzeigen"):
+st.dataframe(data=filtered_df)
 
 st.write("#")
 
@@ -159,7 +169,7 @@ p = sns.scatterplot(data=df, x="LotArea", y="SalePrice", hue="OverallQual")
 plt.title("Sale Price & Lot Area")
 
 # Put seaborn figure 1 in col 1 
-row2_col1.markdown("Sale Price & Lot Area")
+row2_col1.subheader("Sale Price & Lot Area")
 row2_col1.pyplot(fig1, use_container_width=True)
 
 # Seaborn Chart Fig2
