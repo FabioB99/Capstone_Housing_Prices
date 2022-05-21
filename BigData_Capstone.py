@@ -115,7 +115,6 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
                                0, 500, 150, 1)
 
 
-
 ################################################
 # Vorhersage
 ################################################
@@ -145,14 +144,6 @@ st.sidebar.write("#")
 if st.sidebar.button("Start Prediction"):
     make_prediction()
     
-
-with st.expander("Vorhersage anhand Datenset durchühren"):
-    uploaded_data = st.file_uploader("Datenset auswählen:") 
-    
-
-
-st.write("#")
-
 
 ################################################
 # Grafiken
