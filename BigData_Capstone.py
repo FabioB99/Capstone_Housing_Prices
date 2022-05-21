@@ -101,7 +101,7 @@ renovationsjahr = st.sidebar.number_input("Renovationsjahr",
                                   1850, 2022)
 
 #Einfügen einer Legende für Renovationsjahr
-legende_renovationsjahr = '<p style="font-family:Courier; color:Red; font-size: 10px;">Falls bisher keine Renovation stattfand, dann Renovationsjahr = Baujahr</p>'
+legende_renovationsjahr = '<p style="font-family:Courier; color:grey; font-size: 10px;">Falls bisher keine Renovation stattfand, dann Renovationsjahr = Baujahr</p>'
 st.sidebar.markdown(legende_renovationsjahr, unsafe_allow_html=True)
 
 badezimmer = st.sidebar.number_input("Anzahl Badezimmer",
@@ -123,7 +123,21 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
 st.subheader("Kaufpreis vorhersagen:")
 st.markdown("Erstellt eine Vorhersage für den Marktpreis basierend auf den eingegebenen Werten")
 
-# Creates a button to start the prediction
+def create_pred_df():
+    d = {'LotFrontage': int(einfahrt), 'LotArea': int(grundstücksfläche),
+         'OverallQual': int(quality), 'YearBuilt': int(baujahr), 
+         'YearRemodAdd': int(renovationsjahr), 'BsmtFinSF1': int(kellerfläche),
+         '1stFlrSF': int(firstfloor),'2ndFlrSF': int(secondfloor),
+         'FullBath': int(badezimmer), 'GarageCars': int(badezimmer), 
+         'GrLivArea': int(generellground)}
+         
+    input_data = pd.DataFrame(data=d,index=[0])
+    # Creates dummies for the features
+    input_data = pd.get_dummies(input_data, prefix=['room_type', 'neighbourhood_group','neighbourhood'], 
+                                columns=['room_type','neighbourhood_group','neighbourhood']) 
+    return input_data
+
+
 if st.button("Start Prediction"):
     st.write("test")
 
