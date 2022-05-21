@@ -141,10 +141,8 @@ def make_prediction():
     st.metric(label="Estimated Price:", value=price_output)
     st.success("Vorhersage erfolgreich👍 Der geschätzte Kaufpreis beträgt: " + str(price_output))
 
-row1_col1, row1_col2 = st.columns([1,1])
-
 st.write("#") 
-if row1_col1.button("Start Prediction"):
+if st.button("Start Prediction"):
     st.write(make_prediction())
     
 uploaded_data = st.file_uploader("Datei hochladen")
