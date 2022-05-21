@@ -124,14 +124,15 @@ grundstücksfläche2 = col2.slider('Grundstücksfläche in sqf', 0, 250000, (150
 generellground2 = col3.slider('Wohnfläche in sqf', 0, 8000, (2500, 1))
     
 quality2 = col1.slider('Zustand der Immobilie', 0, 10, (0,10))
-badezimmer2 = col2.number_input("Anzahl Badezimmer", 0, 200, 3)
-garagenplätze = col3.number_input("Anzahl Garagenplätze", 0, 200, 2)
+badezimmer2 = col2.slider("Anzahl Badezimmer", 0, 15, (1,3))
+garagenplätze2 = col3.slider("Anzahl Garagenplätze", 0, 10, (1,2))
 
 # creating filtered data set according to slider inputs
 filtered_df = df.loc[(df["OverallQual"] >= quality2[0]) & (df["OverallQual"] <= quality2[1]) &
                      (df["LotArea"] >= grundstücksfläche2[0]) & (df["LotArea"] <= grundstücksfläche2[1]) &
                      (df["YearBuilt"] >= baujahr2[0]) & (df["YearBuilt"] <= baujahr2[1]) &
-                     (df["FullBath"] >= badezimmer2) & (df["GarageCars"] >= garagenplätze) &
+                     (df["FullBath"] >= badezimmer2[0]) & (df["FullBath"] <= badezimmer2[1]) &
+                     (df["GarageCars"] >= garagenplätze2[0]) & (df["GarageCars"] <= garagenplätze2[1]) &
                      (df["GrLivArea"] >= generellground2[0]) & (df["GrLivArea"] <= generellground2[1]),:]
 st.write("#")
 with st.expander("Ganzes Datenset anzeigen"):
