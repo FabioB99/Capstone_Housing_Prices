@@ -70,7 +70,7 @@ st.sidebar.header("Details zu Ihrer Liegenschaft")
 quality = st.sidebar.slider("Generelle Qualität der Liegenschaft",
                            0, 10, 5)
 #Einfügen einer Legende zu den Werten von quality
-legende_qualität = '<p style="font-family:Courier; color:Red; font-size: 10px;">0 = sehr schlecht, 10 = exzellent</p>'
+legende_qualität = '<p style="font-family:Courier; color:grey; font-size: 10px;">0 = sehr schlecht, 10 = exzellent</p>'
 st.sidebar.markdown(legende_qualität, unsafe_allow_html=True)
 
 
@@ -129,17 +129,13 @@ def create_pred_df():
          'YearRemodAdd': int(renovationsjahr), 'BsmtFinSF1': int(kellerfläche),
          '1stFlrSF': int(firstfloor),'2ndFlrSF': int(secondfloor),
          'FullBath': int(badezimmer), 'GarageCars': int(badezimmer), 
-         'GrLivArea': int(generellground)}
-         
+         'GrLivArea': int(generellground)}     
     input_data = pd.DataFrame(data=d,index=[0])
-    # Creates dummies for the features
-    input_data = pd.get_dummies(input_data, prefix=['room_type', 'neighbourhood_group','neighbourhood'], 
-                                columns=['room_type','neighbourhood_group','neighbourhood']) 
     return input_data
 
 
 if st.button("Start Prediction"):
-    st.write("test")
+    st.write(create_pred_df())
 
 
 
