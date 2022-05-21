@@ -128,14 +128,19 @@ def create_pred_df():
          'OverallQual': int(quality), 'YearBuilt': int(baujahr), 
          'YearRemodAdd': int(renovationsjahr), 'BsmtFinSF1': int(kellerfläche),
          '1stFlrSF': int(firstfloor),'2ndFlrSF': int(secondfloor),
-         'FullBath': int(badezimmer), 'GarageCars': int(badezimmer), 
+         'FullBath': int(badezimmer), 'GarageCars': int(garagenplätze), 
          'GrLivArea': int(generellground)}     
     input_data = pd.DataFrame(data=d,index=[0])
     return input_data
 
+def make_prediction():
+    prediction = model.predict(create_pred_df())
+    #price_output = str(int(prediction[0])) + " USD"
+    st.write("#")    
+    st.metric(label="Estimated Price:", value=prediction)
 
 if st.button("Start Prediction"):
-    st.write(create_pred_df())
+    st.write(make_prediction())
 
 
 
