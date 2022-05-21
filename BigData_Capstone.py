@@ -115,15 +115,20 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
 # Dateninspektion
 ################################################
 
-quality2 = st.slider('Zustand der Immobilie', 0, 10, (0,10))
-grundstücksfläche2 = st.slider('Grundstücksfläche in sqf', 0, 250000, (150000, 1))
+col1, col2, col3  = st. columns([1,1,1])
+
+quality2 = col1.slider('Zustand der Immobilie', 0, 10, (0,10))
+grundstücksfläche2 = col2.slider('Grundstücksfläche in sqf', 0, 250000, (150000, 50000))
+baujahr2 = col3.slider("Baujahr", 1850, 2022, (2000, 2010))
 
 
 
 # creating filtered data set according to slider inputs
 filtered_df = df.loc[(df["OverallQual"] >= quality2[0]) & (df["OverallQual"] <= quality2[1]) &
-                     (df["LotArea"] >= grundstücksfläche2[0]) & (df["LotArea"] <= grundstücksfläche2[1])
+                     (df["LotArea"] >= grundstücksfläche2[0]) & (df["LotArea"] <= grundstücksfläche2[1]) &
+                     (df["YearBuilt"] >= baujahr2[0]) & (df["YearBuilt"] <= baujahr2[1])
                      ,:]
+
 
 
 ################################################
