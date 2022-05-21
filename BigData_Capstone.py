@@ -126,7 +126,7 @@ def create_pred_df():
     input_data = pd.DataFrame(data=d,index=[0])
     return input_data
 
-# Vorhersage durchführen
+# Start prediction
 def make_prediction():
     prediction = model.predict(create_pred_df())
     price_output = str(int(prediction)) + " USD"
@@ -139,7 +139,7 @@ if st.sidebar.button("Vorhersage durchführen"):
     
 
 ################################################
-# Grafiken
+# Plots
 ################################################
        
 st.subheader("Visualisierung der Daten:")
@@ -156,11 +156,13 @@ row2_col1, row2_col2  = st. columns([1,1])
 # Seaborn Chart Fig1
 fig1 = plt.figure(figsize=(10,5))
 sns.scatterplot(data=df, x="LotArea", y="SalePrice", hue="OverallQual")
-plt.title("Sale Price & Lot Area")
+plt.title("Sale Price & Lot Area", fontsize=10)
 
 # Put seaborn figure 1 in col 1 
 row2_col1.subheader("Sale Price & Lot Area")
 row2_col1.pyplot(fig1, use_container_width=True)
+
+
 
 
 # Seaborn Chart Fig2
