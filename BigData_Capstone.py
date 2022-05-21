@@ -135,15 +135,15 @@ def create_pred_df():
 
 # Vorhersage durchführen
 def make_prediction():
-    #prediction = model.predict(create_pred_df())
-    #price_output = str(int(prediction)) + " USD"
-    #st.write("#")    
-    #st.metric(label="Estimated Price:", value=price_output)
-    st.success("Vorhersage erfolgreich👍 Der geschätzte Kaufpreis beträgt: ")
+    prediction = model.predict(create_pred_df())
+    price_output = str(int(prediction)) + " USD"
+    st.metric(label="Estimated Price:", value=price_output)
+    st.success("Vorhersage erfolgreich👍 Der geschätzte Kaufpreis beträgt: " + str(int(price_output)))
+    return price_output
 
 if st.button("Start Prediction"):
     st.write(make_prediction())
- 
+    
 st.write("#")   
  
 uploaded_data = st.file_uploader("Datei hochladen")
