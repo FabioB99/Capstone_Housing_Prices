@@ -135,11 +135,11 @@ def create_pred_df():
 def make_prediction():
     prediction = model.predict(create_pred_df())
     price_output = str(int(prediction)) + " USD"
-    st.sidebar.metric(label="", value=price_output)
+    st.sidebar.metric(label="Geschätzter Kaufpreis:", value=price_output)
     st.sidebar.success("Vorhersage erfolgreich👍")
     return price_output
 
-if st.sidebar.button("Preis der Immobilie berechnen:"):
+if st.sidebar.button("Vorhersage durchführen"):
     make_prediction()
     
 
