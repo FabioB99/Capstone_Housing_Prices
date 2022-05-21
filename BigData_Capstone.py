@@ -121,7 +121,7 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
 ################################################
 
 st.subheader("Kaufpreis vorhersagen:")
-st.markdown("Erstellt eine Vorhersage für den Marktpreis basierend auf den eingegebenen Werten")
+st.markdown("Vorhersage basierend auf den eingegebenen Werten durchführen:")
 
 def create_pred_df():
     d = {'LotFrontage': int(einfahrt), 'LotArea': int(grundstücksfläche),
@@ -145,8 +145,9 @@ if st.button("Start Prediction"):
     make_prediction()
     
 st.write("#")   
- 
-uploaded_data = st.file_uploader("Datei hochladen")
+
+with st.expander("Datenset hochladen"):
+    uploaded_data = st.file_uploader("Datenset hochladen")
 
 st.write("#")
 
