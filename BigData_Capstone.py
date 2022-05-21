@@ -120,7 +120,7 @@ col1, col2, col3  = st. columns([1,1,1])
 baujahr2 = col1.slider("Baujahr", 1850, 2022, (2000, 2010))
 quality2 = col2.slider('Zustand der Immobilie', 0, 10, (0,10))
 grundstücksfläche2 = col3.slider('Grundstücksfläche in sqf', 0, 250000, (150000, 50000))
-badezimmer2 = col1.number_input("Anzahl Badezimmer", 0, 3)
+badezimmer2 = col1.number_input("Anzahl Badezimmer", 0, 200, 3)
 
 
 
