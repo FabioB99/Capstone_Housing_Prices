@@ -148,12 +148,7 @@ if row1_col1.button("Start Prediction"):
     
 uploaded_data = st.file_uploader("Datei hochladen")
 
-
-
 st.write("#")
-
-
-
 
 
 ################################################
