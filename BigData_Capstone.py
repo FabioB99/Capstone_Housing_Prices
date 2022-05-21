@@ -44,11 +44,11 @@ model = load_model()
 
 # Insert blank line at the top
 st.markdown('#')
-# Add a title + anchor and a title image
 st.title("House Price Prediction")
 
 # Add an expandable page description with links to the corresponding section
 st.markdown("This Streamlit dashboard....")
+st.markdown('#')
 
 ################################################
 # Sidebar
@@ -61,7 +61,7 @@ st.sidebar.markdown("Berechnen Sie jetzt den Wert Ihrer Liegenschaft")
 st.sidebar.header("Details zu Ihrer Liegenschaft")
 
 
-#Erstellung der Features in der Sidebar
+#Create features in the sidebar
 
 quality = st.sidebar.slider("Generelle Qualität der Liegenschaft",
                            0, 10, 5)
