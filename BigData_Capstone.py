@@ -139,6 +139,7 @@ def make_prediction():
     price_output = str(int(prediction)) + " USD"
     st.write("#")    
     st.metric(label="Estimated Price:", value=price_output)
+    st.success("🕺🏽🎉👍 You successfully score %i new customers for credit default! 🕺🏽🎉👍")
 
 row1_col1, row1_col2 = st.columns([1,1])
 
