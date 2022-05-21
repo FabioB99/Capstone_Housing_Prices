@@ -116,11 +116,13 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
 ################################################
 
 quality2 = st.slider('Zustand der Immobilie', 0, 10, (0,10))
+grundstücksfläche2 = st.slider('Grundstücksfläche in sqf', 0, 250000, (150000, 1))
+
 
 
 # creating filtered data set according to slider inputs
-filtered_df = df.loc[(df["OverallQual"] >= quality2[0]) &
-                     (df["OverallQual"] <= quality2[1]) 
+filtered_df = df.loc[(df["OverallQual"] >= quality2[0]) & (df["OverallQual"] <= quality2[1]) &
+                     (df["LotArea"] >= grundstücksfläche2[0]) & (df["LotArea"] <= grundstücksfläche2[1])
                      ,:]
 
 
@@ -159,7 +161,7 @@ if st.sidebar.button("Vorhersage durchführen"):
 st.subheader("Visualisierung der Daten:")
 
 #with st.expander("Ganzes Datenset anzeigen"):
-st.dataframe(data=filtered_df)
+st.dataframe(filtered_df)
 
 st.write("#")
 
