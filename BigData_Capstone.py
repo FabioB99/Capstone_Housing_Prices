@@ -136,11 +136,12 @@ def create_pred_df():
 # Vorhersage durchführen
 def make_prediction():
     prediction = model.predict(create_pred_df())
-    price_output = "Vorhersage erfolgreich👍 Der geschätzte Kaufpreis beträgt: " + str(int(prediction)) + " USD"
-    #st.metric(label="Estimated Price:", value=price_output)
-    st.sidebar.success(price_output)
+    price_output = str(int(prediction)) + " USD"
+    st.sidebar.metric(label="Estimated Price:", value=price_output)
+    st.sidebar.success("Vorhersage erfolgreich👍")
     return price_output
 
+st.sidebar.write("#")
 if st.sidebar.button("Start Prediction"):
     make_prediction()
     
