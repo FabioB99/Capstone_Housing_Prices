@@ -116,7 +116,7 @@ st.write(quality)
 
 # creating filtered data set according to slider inputs
 filtered_df = df.loc[(df["OverallQual"] == quality) &
-                     (df["monthly_income"] >= generellground)
+                     (df["GrLivArea"] == generellground)
                      , : ]
 
 
