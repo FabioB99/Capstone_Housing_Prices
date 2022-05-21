@@ -142,7 +142,7 @@ def make_prediction():
     return price_output
 
 if st.button("Start Prediction"):
-    st.write(make_prediction())
+    make_prediction()
     
 st.write("#")   
  
