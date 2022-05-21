@@ -119,13 +119,12 @@ st.subheader("Visualisierung der Daten:")
 
 col1, col2, col3  = st. columns([1,1,1])
 
-baujahr2 = col1.slider("Baujahr", int(df["YearBuilt"].min()), int(df["YearBuilt"].max()), (1850, 2022))
-grundstücksfläche2 = col2.slider("Grundstücksfläche in sqf", int(df["LotArea"].min()), int(df["LotArea"].max()), (0, 250000))
-generellground2 = col3.slider("Wohnfläche in sqf", int(df["GrLivArea"].min()), int(df["GrLivArea"].max()), (2500, 1))
-    
-quality2 = col1.slider('Zustand der Immobilie', 0, 10, (0,10))
-badezimmer2 = col2.slider("Anzahl Badezimmer", 0, 15, (1,3))
-garagenplätze2 = col3.slider("Anzahl Garagenplätze", 0, 10, (1,2))
+baujahr2 = col1.slider("Baujahr", int(df["YearBuilt"].min()), int(df["YearBuilt"].max()), (1990, 2010))
+grundstücksfläche2 = col2.slider("Grundstücksfläche in sqf", int(df["LotArea"].min()), int(df["LotArea"].max()), (50000, 150000))
+generellground2 = col3.slider("Wohnfläche in sqf", int(df["GrLivArea"].min()), int(df["GrLivArea"].max()), (1000, 2500))
+quality2 = col1.slider('Zustand der Immobilie', int(df["OverallQual"].min()), int(df["OverallQual"].max()), (4, 8))  
+badezimmer2 = col2.slider('Anzahl Badezimmer', int(df["FullBath"].min()), int(df["FullBath"].max()), (1, 2))  
+garagenplätze2 = col3.slider('Anzahl Garagenplätze', int(df["GarageCars"].min()), int(df["GarageCars"].max()), (1, 2))
 
 # creating filtered data set according to slider inputs
 filtered_df = df.loc[(df["OverallQual"] >= quality2[0]) & (df["OverallQual"] <= quality2[1]) &
