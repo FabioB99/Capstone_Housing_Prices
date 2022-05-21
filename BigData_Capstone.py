@@ -111,10 +111,6 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
                                0, 500, 150, 1)
 
 
-st.write(generellground)
-st.write(quality)
-
-
 ################################################
 # Dateninspektion
 ################################################
