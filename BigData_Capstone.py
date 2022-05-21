@@ -116,8 +116,16 @@ st.write(quality)
 
 # creating filtered data set according to slider inputs
 filtered_df = df.loc[(df["OverallQual"] >= quality) &
-                     (df["GrLivArea"] >= generellground)
-                     , : ]
+                     (df["GrLivArea"] >= generellground) &
+                     (df["1stFlrSF"] >= firstfloor) &
+                     (df["2ndFlrSF"] >= secondfloor) &
+                     (df["BsmtFinSF1"] >= kellerfläche) &
+                     (df["LotArea"] >= grundstücksfläche) &
+                     (df["YearBuilt"] >= baujahr) &
+                     (df["YearRemodAdd"] >= renovationsjahr) &
+                     (df["FullBath"] >= badezimmer) &
+                     (df["GarageCars"] >= garagenplätze) &
+                     (df["LotFrontage"] >= einfahrt),:]
 
 
 ################################################
