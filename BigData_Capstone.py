@@ -115,14 +115,16 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
 # Dateninspektion
 ################################################
 
+st.subheader("Visualisierung der Daten:")
+
+st.write("#")
+
 col1, col2, col3  = st. columns([1,1,1])
 
 baujahr2 = col1.slider("Baujahr", 1850, 2022, (2000, 2010))
 quality2 = col2.slider('Zustand der Immobilie', 0, 10, (0,10))
 grundstücksfläche2 = col3.slider('Grundstücksfläche in sqf', 0, 250000, (150000, 50000))
 badezimmer2 = col1.number_input("Anzahl Badezimmer", 0, 200, 3)
-
-
 
 # creating filtered data set according to slider inputs
 filtered_df = df.loc[(df["OverallQual"] >= quality2[0]) & (df["OverallQual"] <= quality2[1]) &
@@ -131,6 +133,8 @@ filtered_df = df.loc[(df["OverallQual"] >= quality2[0]) & (df["OverallQual"] <= 
                      (df["FullBath"] >= badezimmer2)
                      ,:]
 
+with st.expander("Ganzes Datenset anzeigen"):
+    st.dataframe(filtered_df)
 
 
 ################################################
@@ -165,14 +169,6 @@ if st.sidebar.button("Vorhersage durchführen"):
 # Plots
 ################################################
        
-st.subheader("Visualisierung der Daten:")
-
-#with st.expander("Ganzes Datenset anzeigen"):
-st.dataframe(filtered_df)
-
-st.write("#")
-
-
 # defining two columns for layouting plots 
 row2_col1, row2_col2  = st. columns([1,1])
 
