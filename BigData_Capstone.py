@@ -48,12 +48,7 @@ st.markdown('#')
 st.title("House Price Prediction")
 
 # Add an expandable page description with links to the corresponding section
-with st.expander("See Page Description"):
-     st.markdown("This Streamlit dashboard....")
-     
-st.markdown('#')
-
-
+st.markdown("This Streamlit dashboard....")
 
 ################################################
 # Sidebar
