@@ -116,7 +116,6 @@ einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
 ################################################
 
 st.subheader("Visualisierung der Daten:")
-st.write("#")
 
 col1, col2, col3  = st. columns([1,1,1])
 
@@ -133,9 +132,8 @@ filtered_df = df.loc[(df["OverallQual"] >= quality2[0]) & (df["OverallQual"] <= 
                      (df["LotArea"] >= grundstücksfläche2[0]) & (df["LotArea"] <= grundstücksfläche2[1]) &
                      (df["YearBuilt"] >= baujahr2[0]) & (df["YearBuilt"] <= baujahr2[1]) &
                      (df["FullBath"] >= badezimmer2) & (df["GarageCars"] >= garagenplätze) &
-                     (df["GrLivArea"] >= generellground2[0]) & (df["GrLivArea"] <= generellground2[1])
-                     ,:]
-
+                     (df["GrLivArea"] >= generellground2[0]) & (df["GrLivArea"] <= generellground2[1]),:]
+st.write("#")
 with st.expander("Ganzes Datenset anzeigen"):
     st.dataframe(filtered_df)
 
