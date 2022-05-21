@@ -137,7 +137,7 @@ def create_pred_df():
 def make_prediction():
     prediction = model.predict(create_pred_df())
     st.write("#")    
-    st.metric(label="Geschätzter Kaufpreis:", value=int(prediction))
+    st.metric(label="Geschätzter Kaufpreis:", value=str(prediction) + "USD")
 
 row1_col1, row1_col2, row1_col3 = st.columns([1,1,1])
 
