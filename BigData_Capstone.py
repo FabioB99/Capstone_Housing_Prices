@@ -144,10 +144,9 @@ def make_prediction():
 if st.button("Start Prediction"):
     make_prediction()
     
-st.write("#")   
 
-with st.expander("Datenset hochladen"):
-    uploaded_data = st.file_uploader("Datenset hochladen")
+with st.expander("Vorhersage anhand Datenset durchühren"):
+    uploaded_data = st.file_uploader("Datenset auswählen:")
 
 st.write("#")
 
