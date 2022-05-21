@@ -176,7 +176,7 @@ row2_col1, row2_col2  = st. columns([1,1])
 
 # Seaborn Chart Fig1
 fig1 = plt.figure(figsize=(10,5))
-p = sns.scatterplot(data=df, x="LotArea", y="SalePrice", hue="OverallQual")
+p = sns.scatterplot(data=filtered_df, x="LotArea", y="SalePrice", hue="OverallQual")
 plt.title("Sale Price & Lot Area")
 
 # Put seaborn figure 1 in col 1 
@@ -185,7 +185,7 @@ row2_col1.pyplot(fig1, use_container_width=True)
 
 # Seaborn Chart Fig2
 fig2 = plt.figure(figsize=(10,5))
-sns.scatterplot(data=df, x="SalePrice", y="YearBuilt", hue="OverallQual")
+sns.scatterplot(data=filtered_df, x="SalePrice", y="YearBuilt", hue="OverallQual")
 plt.title("Sale Price & Year Built")
 
 # Put seaborn figure 2 in col 2 
@@ -197,7 +197,7 @@ row3_col1, row3_col2  = st. columns([1,1])
 
 # Seaborn Chart Fig3
 fig3 = plt.figure(figsize=(10,5))
-sns.scatterplot(data=df, x="LotFrontage", y="SalePrice", hue="OverallQual")
+sns.scatterplot(data=filtered_df, x="LotFrontage", y="SalePrice", hue="OverallQual")
 plt.title("Lot Frontage & Sale Price")
 
 # Put seaborn figure 1 in col 1 
@@ -206,7 +206,7 @@ row3_col1.pyplot(fig3, use_container_width=True)
 
 # Seaborn Chart Fig4
 fig4 = plt.figure(figsize=(10,5))
-sns.scatterplot(data=df, x="YearRemodAdd", y="GrLivArea", hue="SalePrice")
+sns.scatterplot(data=filtered_df, x="YearRemodAdd", y="GrLivArea", hue="SalePrice")
 plt.title("Renovation Year & General Living Area")
 
 # Put seaborn figure 4 in col 2
