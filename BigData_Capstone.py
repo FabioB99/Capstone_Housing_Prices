@@ -135,9 +135,8 @@ def create_pred_df():
 
 def make_prediction():
     prediction = model.predict(create_pred_df())
-    #price_output = str(int(prediction[0])) + " USD"
     st.write("#")    
-    st.metric(label="Estimated Price:", value=prediction)
+    st.metric(label="Geschätzter Kaufpreis:", value=int(prediction))
 
 if st.button("Start Prediction"):
     st.write(make_prediction())
