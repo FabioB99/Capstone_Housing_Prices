@@ -44,10 +44,10 @@ model = load_model()
 
 # Insert blank line at the top
 st.markdown('#')
-st.title("House Price Prediction")
+st.title("Immobilienpreis Vorhersage")
 
 # Add an expandable page description with links to the corresponding section
-st.markdown("This Streamlit dashboard....")
+st.markdown("Das vorliegende Dashboard ermöglicht die Vorhersage von Immobilienpreisen. Dazu können in der Sidebar die entsprechenden Merkmale der persönlichen Liegenschaft ausgewählt werden. Auf Basis derer wird die Immobilie mit einem Verkaufspreis bewertet. Mithilfe der Datenvisualisierung können bestehende Datenpunkte analysiert und miteinander verglichen werden. Dies kann insbesondere bei der Einschätzung fremder, aber auch der eigenen Liegenschaft hilfreich sein.")
 st.markdown('#')
 
 ################################################
@@ -177,20 +177,23 @@ row2_col1, row2_col2  = st. columns([1,1])
 
 # Seaborn Chart Fig1
 fig1 = plt.figure(figsize=(10,5))
-p = sns.scatterplot(data=filtered_df, x="LotArea", y="SalePrice", hue="OverallQual")
-plt.title("Sale Price & Lot Area")
+p = sns.scatterplot(data=filtered_df, x="GrLivArea", y="SalePrice", hue="OverallQual")
+p.set_xlabel("Wohnfläche in sqf", fontsize = 15)
+p.set_ylabel("Verkaufspreis in USD", fontsize = 15)
+
 
 # Put seaborn figure 1 in col 1 
-row2_col1.subheader("Sale Price & Lot Area")
+row2_col1.subheader("Korrelation Wohnfläche & Verkaufspreis")
 row2_col1.pyplot(fig1, use_container_width=True)
 
 # Seaborn Chart Fig2
 fig2 = plt.figure(figsize=(10,5))
-sns.scatterplot(data=filtered_df, x="SalePrice", y="YearBuilt", hue="OverallQual")
-plt.title("Sale Price & Year Built")
+q = sns.scatterplot(data=filtered_df, x="YearBuilt", y="SalePrice", hue="OverallQual")
+q.set_xlabel("Baujahr", fontsize = 15)
+q.set_ylabel("Verkaufspreis in USD", fontsize = 15)
 
 # Put seaborn figure 2 in col 2 
-row2_col2.subheader("SalePrice & Year Built")
+row2_col2.subheader("Korrelation Baujahr & Verkaufspreis")
 row2_col2.pyplot(fig2, use_container_width=True)
 
 # defining three columns for layouting plots 
@@ -198,18 +201,19 @@ row3_col1, row3_col2  = st. columns([1,1])
 
 # Seaborn Chart Fig3
 fig3 = plt.figure(figsize=(10,5))
-sns.scatterplot(data=filtered_df, x="LotFrontage", y="SalePrice", hue="OverallQual")
-plt.title("Lot Frontage & Sale Price")
+r = sns.histplot(filtered_df, x="SalePrice", hue="OverallQual")
+r.set_xlabel("Verkaufspreis in USD", fontsize = 15)
+r.set_ylabel("Anzahl Immobilien", fontsize = 15)
 
 # Put seaborn figure 1 in col 1 
-row3_col1.subheader("Lot Frontage & Sale Price")
+row3_col1.subheader("Verteilung nach Verkaufspreis")
 row3_col1.pyplot(fig3, use_container_width=True)
 
-# Seaborn Chart Fig4
 fig4 = plt.figure(figsize=(10,5))
-sns.scatterplot(data=filtered_df, x="YearRemodAdd", y="GrLivArea", hue="SalePrice")
-plt.title("Renovation Year & General Living Area")
+s = sns.histplot(filtered_df, x="OverallQual", hue=None, color="#98648c")
+s.set_xlabel("Allgemeiner Immobilienzustand", fontsize = 15)
+s.set_ylabel("Anzahl Immobilien", fontsize = 15)
 
-# Put seaborn figure 4 in col 2
-row3_col2.subheader("Renovation Year & General Living Area")
+# Put seaborn figure 1 in col 1 
+row3_col2.subheader("Verteilung nach Immobilienzustand")
 row3_col2.pyplot(fig4, use_container_width=True)
