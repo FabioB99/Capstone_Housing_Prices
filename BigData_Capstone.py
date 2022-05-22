@@ -107,7 +107,7 @@ garagenplätze = st.sidebar.number_input("Anzahl Garagenplätze",
                                        0, 10)
 
 df["LotFrontage"] = df["LotFrontage"].astype(int)
-einfahrt = st.sidebar.slider("Länge der Einfahrt in ft",
+einfahrt = st.sidebar.slider("Grundstücksgrenze in ft",
                                0, 500, 150, 1)
 
 
