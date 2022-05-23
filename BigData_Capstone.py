@@ -196,7 +196,7 @@ q.set_ylabel("Verkaufspreis in USD", fontsize = 15)
 row2_col2.subheader("Korrelation Baujahr & Verkaufspreis")
 row2_col2.pyplot(fig2, use_container_width=True)
 
-# defining three columns for layouting plots 
+# defining two columns for layouting plots 
 row3_col1, row3_col2  = st. columns([1,1])
 
 # Seaborn Chart Fig3
@@ -205,7 +205,7 @@ r = sns.histplot(filtered_df, x="SalePrice", hue="OverallQual")
 r.set_xlabel("Verkaufspreis in USD", fontsize = 15)
 r.set_ylabel("Anzahl Immobilien", fontsize = 15)
 
-# Put seaborn figure 1 in col 1 
+# Put seaborn figure 3 in col 1 
 row3_col1.subheader("Verteilung nach Verkaufspreis")
 row3_col1.pyplot(fig3, use_container_width=True)
 
@@ -214,6 +214,6 @@ s = sns.histplot(filtered_df, x="OverallQual", hue=None, color="#98648c")
 s.set_xlabel("Allgemeiner Immobilienzustand", fontsize = 15)
 s.set_ylabel("Anzahl Immobilien", fontsize = 15)
 
-# Put seaborn figure 1 in col 1 
+# Put seaborn figure 4 in col 2 
 row3_col2.subheader("Verteilung nach Immobilienzustand")
 row3_col2.pyplot(fig4, use_container_width=True)
